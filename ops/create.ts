@@ -89,6 +89,7 @@ const loadDeployData = (filepath: string): TokenLockConfigEntry[] => {
 const loadResultData = (filepath: string): TokenLockConfigEntry[] => {
   const data = fs.readFileSync(__dirname + filepath, 'utf8')
   const entries = data.split('\n').map((e) => e.trim())
+  entries.shift()
   return entries
     .filter((entryData) => !!entryData)
     .map((entryData) => {
